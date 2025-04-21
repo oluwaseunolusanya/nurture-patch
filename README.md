@@ -28,30 +28,36 @@ Nurture Patch provides a responsive platform offering after-school and holiday c
     ```bash
      npm install
 
-3. Run the development server
+3. Run the development server and visit http://localhost:5173/ in your browser
     ```bash
     npm run dev
-   Visit http://localhost:5173/ in your browser
+
 
 ## Deployment
 Hosted on Vercel and linked to www.nuturepatch.co.uk
 
 ## Folder Structure
-nurture-patch/
-├── public/
-├── src/
-│   ├── components/
-│   │   ├── Booking.jsx
-│   │   ├── Contact.jsx
-│   │   ├── Hero.jsx
-│   │   ├── Navbar.jsx
-│   ├── pages/
-│   │   ├── About.jsx
-│   │   ├── Home.jsx
-│   ├── App.jsx
-│   └── main.jsx
-├── package.json
-└── README.md
+- nurture-patch/
+  - node_modules/
+  - public/
+  - src/
+    - components/
+      - Booking.jsx
+      - Contact.jsx
+      - Hero.jsx
+      - Navbar.jsx
+    - pages/
+      - About.jsx
+      - Home.jsx
+    - App.jsx
+    - main.jsx
+ - .gitignore
+ - eslint.config.js
+ - index.html
+ - package.json
+ - package-lock.json
+ - README.md
+ - vite.config.js
 
 ## Future Improvements
  - Full EmailJS integration for booking form
