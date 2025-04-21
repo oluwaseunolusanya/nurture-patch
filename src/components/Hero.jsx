@@ -1,10 +1,11 @@
 import React from 'react';
+import heroImage from '../assets/hero.jpg'
 
 const Hero = () => {
   return (
     <div className="relative bg-green-600 text-white h-[80vh] flex items-center justify-center text-center overflow-hidden">
       <img 
-        src="src\assets\hero.jpg" 
+        src={heroImage} 
         alt="Children playing" 
         className="absolute w-full h-full object-cover opacity-30"
       />

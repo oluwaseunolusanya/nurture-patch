@@ -6,6 +6,10 @@ function About() {
       <h2 className="text-2xl font-bold mb-4">About Us</h2>
       <p>At Nurture Patch, we believe every child deserves a nurturing and inspiring environment. 
       We provide care for school-aged children with flexible after-school and holiday options.</p>
+      <p>
+          With a focus on learning through play, creativity, and positive relationships, 
+          we support each child's journey — one little step at a time.
+      </p>
     </section>
   );
 };
