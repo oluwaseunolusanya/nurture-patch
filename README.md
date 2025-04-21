@@ -51,13 +51,13 @@ Hosted on Vercel and linked to www.nuturepatch.co.uk
       - Home.jsx
     - App.jsx
     - main.jsx
- - .gitignore
- - eslint.config.js
- - index.html
- - package.json
- - package-lock.json
- - README.md
- - vite.config.js
+  - .gitignore
+  - eslint.config.js
+  - index.html
+  - package.json
+  - package-lock.json
+  - README.md
+  - vite.config.js
 
 ## Future Improvements
  - Full EmailJS integration for booking form
