@@ -63,3 +63,6 @@ Hosted on Vercel and linked to www.nuturepatch.co.uk
  - Full EmailJS integration for booking form
  - Add parent portal
  - Improve SEO and accessibility
+
+## License
+This project is open-source under the MIT License.
