@@ -1,7 +1,7 @@
 # Nurture Patch 🌱
 > Safe, caring, and fun childcare for school-age children.
 
-[Nurture Patch Website](https://www.nurturepatch.co.uk)
+[Nurture Patch Website](www.nurturepatch.co.uk)
 
 ## Overview
 Nurture Patch provides a responsive platform offering after-school and holiday childcare services. With a user-friendly booking system and detailed service description, the site is designed to be mobile-first with a focus on simplicity.
