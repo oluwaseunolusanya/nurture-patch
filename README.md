@@ -31,7 +31,7 @@ Nurture Patch provides a responsive platform offering after-school and holiday c
 3. Run the development server
     ```bash
     npm run dev
-    Visit http://localhost:5173/ in your browser
+   Visit http://localhost:5173/ in your browser
 
 ## Deployment
 Hosted on Vercel and linked to www.nuturepatch.co.uk
