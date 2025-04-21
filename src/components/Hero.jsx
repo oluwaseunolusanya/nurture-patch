@@ -17,12 +17,12 @@ const Hero = () => {
         <p className="text-lg sm:text-xl md:text-2xl mb-6">
           Before and after-school care designed to inspire and support.
         </p>
-        <Link 
-          to="/booking" 
+        <a 
+          href="#booking-form" 
           className="bg-white text-green-600 font-semibold py-3 px-6 rounded-full hover:bg-green-100 transition"
         >
-          Book a Visit
-        </Link>
+          Schedule a Visit
+        </a>
       </div>
     </div>
   );
