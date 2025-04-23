@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import emailjs from 'emailjs-com'
+import emailjs from 'emailjs-com';
 
 function Booking() {
   const [formData, setFormData] = useState({
@@ -20,7 +20,7 @@ function Booking() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formData.parentName || !formData.childName || !formData.bookingDate) {
@@ -28,19 +28,25 @@ function Booking() {
       return;
     }
 
-    emailjs.send(
-      process.env.REACT_APP_EMAILJS_SERVICE_ID,
-      process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-      formData,
-      process.env.REACT_APP_EMAILJS_USER_ID
-    )
-    .then(() => {
+    try {
+      await emailjs.send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        {
+          parent_name: formData.parentName,
+          child_name: formData.childName,
+          booking_date: formData.bookingDate,
+          notes: formData.notes,
+        },
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      );
+
       setIsSubmitted(true);
       setErrorMessage('');
-    })
-    .catch(() => {
-      setErrorMessage('There was an issue with sending your booking. Please try again later.');
-    });
+    } catch (error) {
+      console.error('Failed to send booking:', error);
+      setErrorMessage('Failed to send booking. Please try again later.');
+    }
   };
 
   return (
@@ -133,3 +139,6 @@ function Booking() {
 }
 
 export default Booking;
+
+
+  
