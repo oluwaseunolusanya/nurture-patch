@@ -84,11 +84,12 @@ Deployed via Vercel, connected to www.nurturepatch.co.uk.
 
 You can deploy your own copy by:
 
-Forking this repository.
+ 1. Forking this repository.
 
-Connecting your fork to Vercel.
+ 2. Connecting your fork to Vercel.
 
-Setting up build commands (npm run build) and output directory (dist).
+ 3. Setting up build commands (npm run build) and output directory (dist).
+
 
 ---
 
@@ -117,11 +118,11 @@ nurture-patch/
 ---
 
 ## Future Improvements
-Complete EmailJS integration for booking confirmation emails.
+- Complete EmailJS integration for booking confirmation emails.
 
-Add a secure parent login portal.
+- Add a secure parent login portal.
 
-Improve SEO and web accessibility compliance.
+- Improve SEO and web accessibility compliance.
 
 ---
 
