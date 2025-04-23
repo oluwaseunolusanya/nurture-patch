@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com'
 
 function Booking() {
   const [formData, setFormData] = useState({
@@ -27,8 +28,19 @@ function Booking() {
       return;
     }
 
-    setIsSubmitted(true);
-    setErrorMessage('');
+    emailjs.send(
+      process.env.REACT_APP_EMAILJS_SERVICE_ID,
+      process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+      formData,
+      process.env.REACT_APP_EMAILJS_USER_ID
+    )
+    .then(() => {
+      setIsSubmitted(true);
+      setErrorMessage('');
+    })
+    .catch(() => {
+      setErrorMessage('There was an issue with sending your booking. Please try again later.');
+    });
   };
 
   return (
