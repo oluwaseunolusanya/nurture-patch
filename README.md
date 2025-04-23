@@ -2,6 +2,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?logo=vercel)](https://nurturepatch.vercel.app/)
+[![React](https://img.shields.io/badge/Frontend%20with-React-61DBFB?logo=react)](Library)
+
 
 > Safe, caring, and fun childcare for school-age children.
 
