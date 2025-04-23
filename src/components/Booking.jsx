@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import emailjs from 'emailjs-com';
+import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from '../config';
+import emailjs from '@emailjs/browser';
 
 function Booking() {
   const [formData, setFormData] = useState({
@@ -30,18 +31,24 @@ function Booking() {
 
     try {
       await emailjs.send(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         {
           parent_name: formData.parentName,
           child_name: formData.childName,
           booking_date: formData.bookingDate,
           notes: formData.notes,
         },
-        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+        EMAILJS_PUBLIC_KEY
       );
 
       setIsSubmitted(true);
+      setFormData({
+        parentName: '',
+        childName: '',
+        bookingDate: '',
+        notes: '',
+      });
       setErrorMessage('');
     } catch (error) {
       console.error('Failed to send booking:', error);
