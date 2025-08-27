@@ -9,7 +9,7 @@ function Contact() {
       </p>
       <div className="space-y-2 text-center">
         <p className="text-lg">
-          <strong>Email:</strong> <a href="mailto:childcare@nurturepatch.co.uk" className="underline hover:text-green-800">childcare@nurturepatch.co.uk</a>
+          <strong>Email:</strong> <a href="mailto:childcare.nurturepatch@gmail.com" className="underline hover:text-green-800">childcare@nurturepatch.co.uk</a>
         </p>
         <p className="text-lg">
           <strong>Phone:</strong> <a href="tel:+447868831627" className="underline hover:text-green-800">+44 7868 831627</a>
