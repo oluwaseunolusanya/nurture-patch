@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 function Booking() {
   const [formData, setFormData] = useState({
     parentName: '',
+    email: '',
     childName: '',
     bookingDate: '',
     notes: '',
@@ -10,73 +11,69 @@ function Booking() {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!formData.parentName || !formData.childName || !formData.bookingDate) {
+    if (!formData.parentName || !formData.email || !formData.childName || !formData.bookingDate) {
       setErrorMessage('Please fill in all required fields.');
       return;
     }
 
+    setIsLoading(true);
     try {
       const res = await fetch('/booking', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-
       const result = await res.json();
-      if(result.success) {
+
+      if (result.success) {
         setIsSubmitted(true);
-        setFormData({
-          parentName: '',
-          childName: '',
-          bookingDate: '',
-          notes: '',
-        });
+        setFormData({ parentName: '', email: '', childName: '', bookingDate: '', notes: '' });
         setErrorMessage('');
       } else {
-        throw new Error(result.message || 'Failed to send booking. Please try again later.');   
+        throw new Error(result.message || 'Failed to send booking.');
       }
     } catch (error) {
-      console.error('Failed to send booking:', error);
+      console.error(error);
       setErrorMessage('Failed to send booking. Please try again later.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <section className="bg-green-50 text-green-600 py-12 sm:py-16 md:py-20 px-6 sm:px-8 md:px-12 flex justify-center">
-      <div className="bg-white shadow-lg rounded-2xl p-8 sm:p-10 md:p-12 w-full max-w-2xl">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center">Book a Session</h2>
+    <section className="w-full min-h-screen bg-green-50 flex items-center justify-center text-green-600 px-4 sm:px-8 md:px-12">
+      <div className="w-full max-w-[95vw]"> {/* Always spans most of viewport width */}
+        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center">Book a Visit</h2>
+        <p className="text-center text-lg sm:text-xl md:text-2xl mb-8">
+          At Nurture Patch, we believe every child deserves a nurturing and inspiring environment.
+          We provide care for school-aged children with flexible after-school and holiday options.
+        </p>
 
         {isSubmitted ? (
-          <div className="text-center p-6 bg-green-100 border border-green-600 rounded-md">
-            <p className="text-lg text-green-700">
-              Your booking has been submitted successfully! We’ll get back to you shortly.
-            </p>
+          <div className="text-center p-6 bg-green-100 border border-green-600 rounded-xl shadow-md">
+            ✅ Your booking has been submitted successfully! We will get back to you shortly.
           </div>
         ) : (
-          <form className="space-y-6" onSubmit={handleSubmit}>
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-6 bg-white p-8 rounded-2xl shadow-lg border mx-auto w-full"
+          >
             {errorMessage && (
               <p className="text-red-600 text-center font-medium">{errorMessage}</p>
             )}
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="flex flex-col">
-                <label htmlFor="parentName" className="block mb-2 font-semibold">
-                  Parent&apos;s Name
-                </label>
+                <label htmlFor="parentName" className="mb-2 font-semibold">Parent&apos;s Name</label>
                 <input
                   type="text"
                   id="parentName"
@@ -90,9 +87,23 @@ function Booking() {
               </div>
 
               <div className="flex flex-col">
-                <label htmlFor="childName" className="block mb-2 font-semibold">
-                  Child&apos;s Name
-                </label>
+                <label htmlFor="email" className="mb-2 font-semibold">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Enter Email"
+                  className="border rounded-md p-3 w-full focus:outline-none focus:ring-2 focus:ring-green-300"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="flex flex-col">
+                <label htmlFor="childName" className="mb-2 font-semibold">Child&apos;s Name</label>
                 <input
                   type="text"
                   id="childName"
@@ -104,27 +115,23 @@ function Booking() {
                   required
                 />
               </div>
+
+              <div className="flex flex-col">
+                <label htmlFor="bookingDate" className="mb-2 font-semibold">Booking Date</label>
+                <input
+                  type="date"
+                  id="bookingDate"
+                  name="bookingDate"
+                  value={formData.bookingDate}
+                  onChange={handleChange}
+                  className="border rounded-md p-3 w-full focus:outline-none focus:ring-2 focus:ring-green-300"
+                  required
+                />
+              </div>
             </div>
 
             <div className="flex flex-col">
-              <label htmlFor="bookingDate" className="block mb-2 font-semibold">
-                Booking Date
-              </label>
-              <input
-                type="date"
-                id="bookingDate"
-                name="bookingDate"
-                value={formData.bookingDate}
-                onChange={handleChange}
-                className="border rounded-md p-3 w-full focus:outline-none focus:ring-2 focus:ring-green-300"
-                required
-              />
-            </div>
-
-            <div className="flex flex-col">
-              <label htmlFor="notes" className="block mb-2 font-semibold">
-                Notes (optional)
-              </label>
+              <label htmlFor="notes" className="mb-2 font-semibold">Notes (optional)</label>
               <textarea
                 id="notes"
                 name="notes"
@@ -137,9 +144,12 @@ function Booking() {
 
             <button
               type="submit"
-              className="bg-green-600 text-white font-semibold px-6 py-3 rounded-full w-full hover:bg-green-700 transition"
+              disabled={isLoading}
+              className={`${
+                isLoading ? 'bg-green-400' : 'bg-green-600 hover:bg-green-700'
+              } text-white font-semibold px-6 py-3 rounded-full w-full sm:w-auto mx-auto block mt-6 transition`}
             >
-              Submit Booking
+              {isLoading ? 'Submitting...' : 'Submit Booking'}
             </button>
           </form>
         )}
@@ -149,6 +159,3 @@ function Booking() {
 }
 
 export default Booking;
-
-
-  
