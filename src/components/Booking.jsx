@@ -30,26 +30,27 @@ function Booking() {
     }
 
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          parent_name: formData.parentName,
-          child_name: formData.childName,
-          booking_date: formData.bookingDate,
-          notes: formData.notes,
+      const res = await fetch('/api/booking', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-        EMAILJS_PUBLIC_KEY
-      );
-
-      setIsSubmitted(true);
-      setFormData({
-        parentName: '',
-        childName: '',
-        bookingDate: '',
-        notes: '',
+        body: JSON.stringify(formData),
       });
-      setErrorMessage('');
+
+      const result = await res.json();
+      if(result.success) {
+        setIsSubmitted(true);
+        setFormData({
+          parentName: '',
+          childName: '',
+          bookingDate: '',
+          notes: '',
+        });
+        setErrorMessage('');
+      } else {
+        throw new Error(result.message || 'Failed to send booking. Please try again later.');   
+      }
     } catch (error) {
       console.error('Failed to send booking:', error);
       setErrorMessage('Failed to send booking. Please try again later.');
