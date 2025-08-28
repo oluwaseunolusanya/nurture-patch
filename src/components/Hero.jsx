@@ -18,7 +18,7 @@ const Hero = () => {
           Before and after-school care designed to inspire and support.
         </p>
         <a 
-          href="#booking-form" 
+          href="/booking"
           className="bg-white text-green-600 font-semibold py-3 px-6 rounded-full hover:bg-green-100 transition"
         >
           Schedule a Visit

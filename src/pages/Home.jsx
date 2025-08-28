@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { scroller } from 'react-scroll'; // install react-scroll if not already
 import Hero from '../components/Hero';
-import Booking from '../components/Booking';
 import Contact from '../components/Contact';
 
 function Home() {
@@ -45,10 +44,6 @@ function Home() {
           <h3 className="text-2xl font-semibold text-green-600 mb-4">Caring Environment</h3>
           <p>We foster a safe, supportive environment where children can grow and explore.</p>
         </div>
-      </div>
-
-      <div id="booking-form" className="mt-8">
-        <Booking />
       </div>
 
     </section>

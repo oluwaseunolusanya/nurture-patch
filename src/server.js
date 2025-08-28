@@ -10,7 +10,7 @@ app.use(cors());  //Enable CORS for all routes
 app.use(express.json()); // Middleware to parse JSON bodies
 
 // Booking endpoint
-app.post("/api/booking", async (req, res) => {
+app.post("/booking", async (req, res) => {
   const { parentName, childName, bookingDate, notes } = req.body;
   
   // Basic validation

@@ -18,7 +18,7 @@ function Navbar() {
       <div className="hidden md:flex space-x-6 items-center">
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/#booking-form">Booking</RouterLink>
+        <RouterLink to="/booking">Booking</RouterLink>
         <ScrollLink
           to="contact"
           smooth={true}

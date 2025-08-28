@@ -28,7 +28,7 @@ function Booking() {
     }
 
     try {
-      const res = await fetch('/api/booking', {
+      const res = await fetch('/booking', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -56,14 +56,15 @@ function Booking() {
   };
 
   return (
-    <section className="w-full bg-green-50 py-8">
-      {/* Set container to take up full width on larger screens */}
-      <div className='px-4 sm:px-6 lg:px-12 max-w-screen-xl mx-auto text-green-600'>
-        <h2 className="w-full text-2xl sm:text-3xl font-bold mb-6 text-center">Book a Session</h2>
+    <section className="bg-green-50 text-green-600 py-12 sm:py-16 md:py-20 px-6 sm:px-8 md:px-12 flex justify-center">
+      <div className="bg-white shadow-lg rounded-2xl p-8 sm:p-10 md:p-12 w-full max-w-2xl">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center">Book a Session</h2>
 
         {isSubmitted ? (
           <div className="text-center p-6 bg-green-100 border border-green-600 rounded-md">
-            <p className="text-lg text-green-700">Your booking has been submitted successfully! We will get back to you shortly.</p>
+            <p className="text-lg text-green-700">
+              Your booking has been submitted successfully! We’ll get back to you shortly.
+            </p>
           </div>
         ) : (
           <form className="space-y-6" onSubmit={handleSubmit}>
@@ -71,10 +72,11 @@ function Booking() {
               <p className="text-red-600 text-center font-medium">{errorMessage}</p>
             )}
 
-            {/* Grid layout for form fields */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="flex flex-col">
-                <label htmlFor="parentName" className="block mb-2 font-semibold">Parent's Name</label>
+                <label htmlFor="parentName" className="block mb-2 font-semibold">
+                  Parent&apos;s Name
+                </label>
                 <input
                   type="text"
                   id="parentName"
@@ -88,7 +90,9 @@ function Booking() {
               </div>
 
               <div className="flex flex-col">
-                <label htmlFor="childName" className="block mb-2 font-semibold">Child's Name</label>
+                <label htmlFor="childName" className="block mb-2 font-semibold">
+                  Child&apos;s Name
+                </label>
                 <input
                   type="text"
                   id="childName"
@@ -102,9 +106,10 @@ function Booking() {
               </div>
             </div>
 
-            {/* Booking Date */}
             <div className="flex flex-col">
-              <label htmlFor="bookingDate" className="block mb-2 font-semibold">Booking Date</label>
+              <label htmlFor="bookingDate" className="block mb-2 font-semibold">
+                Booking Date
+              </label>
               <input
                 type="date"
                 id="bookingDate"
@@ -116,9 +121,10 @@ function Booking() {
               />
             </div>
 
-            {/* Notes */}
             <div className="flex flex-col">
-              <label htmlFor="notes" className="block mb-2 font-semibold">Notes (optional)</label>
+              <label htmlFor="notes" className="block mb-2 font-semibold">
+                Notes (optional)
+              </label>
               <textarea
                 id="notes"
                 name="notes"
@@ -129,11 +135,9 @@ function Booking() {
               ></textarea>
             </div>
 
-            {/* Submit Button */}
             <button
-              id="booking"
               type="submit"
-              className="bg-green-600 text-white font-semibold px-6 py-3 rounded-full w-full sm:w-auto mx-auto block mt-6 hover:bg-green-700 transition"
+              className="bg-green-600 text-white font-semibold px-6 py-3 rounded-full w-full hover:bg-green-700 transition"
             >
               Submit Booking
             </button>
