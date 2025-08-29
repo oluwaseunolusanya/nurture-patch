@@ -11,10 +11,10 @@ app.use(express.json()); // Middleware to parse JSON bodies
 
 // Booking endpoint
 app.post("/booking", async (req, res) => {
-  const { parentName, childName, bookingDate, notes } = req.body;
+  const { parentName, email, childName, bookingDate, notes } = req.body;
   
   // Basic validation
-  if (!parentName || !childName || !bookingDate) {
+  if (!parentName || !email || !childName || !bookingDate) {
     return res.status(400).json({ message: "Please fill in all required fields." });
 };
 
@@ -35,6 +35,7 @@ const transporter = nodemailer.createTransport({
     subject: "New Booking Request",
     text: `
       Parent Name: ${parentName}
+      Email: ${email}
       Child Name: ${childName}
       Booking Date: ${bookingDate}
       Notes: ${notes || 'None'}
