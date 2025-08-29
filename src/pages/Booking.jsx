@@ -145,11 +145,11 @@ function Booking() {
             <button
               type="submit"
               disabled={isLoading}
-              className={`${
-                isLoading ? 'bg-green-400' : 'bg-green-600 hover:bg-green-700'
-              } text-white font-semibold px-6 py-3 rounded-full w-full sm:w-auto mx-auto block mt-6 transition`}
+              className={`!bg-green-600 !text-white font-semibold px-6 py-3 rounded-full w-full sm:w-auto mx-auto block mt-6 transition
+                ${isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-green-700'}
+              `}
             >
-              {isLoading ? 'Submitting...' : 'Submit Booking'}
+              {isLoading ? 'Submitting…' : 'Submit Booking'}
             </button>
           </form>
         )}
