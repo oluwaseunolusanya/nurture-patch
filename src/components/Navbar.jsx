@@ -41,7 +41,7 @@ function Navbar() {
         <div className="absolute top-16 left-0 w-full bg-white shadow-md flex flex-col items-center space-y-4 py-6 md:hidden z-20">
           <RouterLink onClick={toggleMenu} to="/">Home</RouterLink>
           <RouterLink onClick={toggleMenu} to="/about">About</RouterLink>
-          <RouterLink onClick={toggleMenu} to="/#booking-form">
+          <RouterLink onClick={toggleMenu} to="/booking">
             Booking
           </RouterLink>
           <ScrollLink
