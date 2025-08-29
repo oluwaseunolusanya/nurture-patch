@@ -117,7 +117,7 @@ function Booking() {
               </div>
 
               <div className="flex flex-col">
-                <label htmlFor="bookingDate" className="mb-2 font-semibold">Booking Date</label>
+                <label htmlFor="bookingDate" className="mb-2 font-semibold">Scheduled Date</label>
                 <input
                   type="date"
                   id="bookingDate"
