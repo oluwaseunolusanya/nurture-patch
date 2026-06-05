@@ -55,7 +55,7 @@ function Booking() {
         <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center">Book a Visit</h2>
         <p className="text-center text-lg sm:text-xl md:text-2xl mb-8">
           At Nurture Patch, we believe every child deserves a nurturing and inspiring environment.
-          We provide care for school-aged children with flexible after-school and holiday options.
+          We provide care for early years and school-aged children with flexible after-school and holiday options.
         </p>
 
         {isSubmitted ? (

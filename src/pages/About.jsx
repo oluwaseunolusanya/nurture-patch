@@ -6,8 +6,7 @@ function About() {
       <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center">About Us</h2>
       <div className="text-center mb-8">
         <p className='text-lg sm:text-xl md:text-2xl mb-6'>
-          At Nurture Patch, we believe every child deserves a nurturing and inspiring environment. 
-          We provide care for school-aged children with flexible after-school and holiday options.
+          At Nurture Patch, we believe every child deserves a nurturing and inspiring environment to grow and thrive. We provide care for both early years and school-aged children, offering flexible childcare options including after-school and holiday programs. We are committed to creating a safe, engaging, and inclusive setting where every child can learn, develop, and flourish.
         </p>
       </div>
 
